@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "./node_modules/netlify-lambda/bin   nodemon app.js",
+    "build":"./node_modules/netlify-lambda/bin   nodemon app.js"
   },
   "keywords": [],
   "author": "",
@@ -25,8 +26,11 @@
     "lodash": "^4.17.15",
     "mongoose": "^5.7.7",
     "morgan": "^1.9.1",
+    "netlify": "^4.3.1",
+    "netlify-lambda": "^1.6.3",
     "nodemon": "^1.19.4",
     "npm": "^6.13.0",
+    "serverless-http": "^2.5.0",
     "stripe": "^8.52.0",
     "uuid": "^3.3.3"
   }

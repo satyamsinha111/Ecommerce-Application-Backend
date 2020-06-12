@@ -13,6 +13,8 @@ const dotenv = require("dotenv").config(),
     stripeRoute = require("./routes/stripepayment"),
     PORT = process.env.PORT || process.env.LOCAL_PORT,
     brainTreeRoute = require("./routes/braintreepayment"),
+    clientRoutes   = require("./routes/client"),
+    serverless = require("serverless-http"),
     app = express();
 //MIDDLEWARES
 app.use(bodyParser.json());
@@ -36,9 +38,12 @@ app.use("/api", productRoutes);
 app.use("/api", orderRoutes);
 app.use("/api",stripeRoute)
 app.use("/api",brainTreeRoute)
+app.use("/api",clientRoutes)
 
 
 
 app.listen(PORT, () => {
     console.log(`App is running at ${PORT}`)
 })
+
+module.exports.handler = serverless(app)
